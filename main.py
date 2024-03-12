@@ -6,7 +6,7 @@ from threading import Thread
 app = Flask(__name__)
 mqtt_broker = "mqtt.eclipseprojects.io"
 mqtt_topic = "TEMPERATURE"
-message = ""
+message = "a"
 
 @app.route('/')
 def index():
@@ -20,7 +20,7 @@ def on_message(client, userdata, msg):
 def thread():
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
     client.on_message = on_message
-    client.connect(mqtt_broker)
+    client.connect(mqtt_broker, port = 1883)
 
     client.subscribe("TEMPERATURE")
     client.loop_forever()
