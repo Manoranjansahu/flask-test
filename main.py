@@ -11,9 +11,7 @@ def index():
 
 @app.route('/value')
 def value():
-    global  val
-    val = val + 1
-    return val
+    return jsonify({"number": "Welcome value"})
 
 
 if __name__ == '__main__':
