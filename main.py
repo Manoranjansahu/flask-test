@@ -13,7 +13,7 @@ def index():
 def value():
     global val
     val = val + 1
-    return val
+    return f"{val}"
 
 
 if __name__ == '__main__':
